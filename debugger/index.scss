@@ -1,0 +1,72 @@
+.debugger {
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 4px;
+  bottom: 16px;
+  color: #fff;
+  opacity: 0;
+  padding: 16px;
+  position: fixed;
+  right: 16px;
+  transform: translateY(calc(100% - 32px)) scale(1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 4;
+
+  &__group {
+    border: none;
+    padding: 0 0 16px;
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    &--column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &--rmt,
+    &--rmb {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 12px;
+        left: 0;
+        height: 4px;
+      }
+    }
+
+    &--rmt::before {
+      background-color: var(--root-margin-top-color, #000);
+      width: calc(var(--root-margin-top, 0) / 2);
+    }
+
+    &--rmb::before {
+      background-color: var(--root-margin-bottom-color, #333);
+      width: calc(var(--root-margin-bottom, 0) / 2);
+    }
+  }
+
+  &__cta {
+    @extend %cta;
+
+    border-color: white;
+    color: white;
+
+    &:hover {
+      background-color: white;
+      color: #333;
+    }
+  }
+
+  &__config-output {
+    height: 150px;
+    width: 100%;
+    background-color: #222;
+    cursor: text;
+    color: rgba(255, 255, 255, 0.8);
+  }
+}

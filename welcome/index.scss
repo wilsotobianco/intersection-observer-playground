@@ -1,0 +1,54 @@
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50vh;
+  transform: translateY(-50%);
+
+  &__heading,
+  &__subheading {
+    text-align: center;
+    width: clamp(320px, 75vw, 1440px);
+    z-index: -1;
+  }
+
+  &__heading {
+    font-size: clamp(4em, 6vw, 6em);
+  }
+
+  &__cta {
+    @extend %cta;
+
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-name: bounce;
+    animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 1.6rem;
+    text-align: center;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(4px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  57% {
+    transform: translateY(2px);
+  }
+  64% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

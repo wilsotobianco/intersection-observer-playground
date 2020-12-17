@@ -1,78 +1,205 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>JS Bin</title>
-  <link rel="stylesheet" href="./index.scss"/>
-</head>
-<body>
-  <main>
-    <article>
-      <h2>Trackable element</h2>
-    </article>
-    <article>
-      <h2>Trackable element</h2>
-    </article>
-    <article>
-      <h2>Trackable element</h2>
-    </article>
-    <article>
-      <h2>Trackable element</h2>
-    </article>
-    <article>
-      <h2>Trackable element</h2>
-    </article>
-    <article>
-      <h2>Trackable element</h2>
-    </article>
-    <article>
-      <h2>Trackable element</h2>
-    </article>
-    <article>
-      <h2>Trackable element</h2>
-    </article>
-    <article>
-      <h2>Trackable element</h2>
-    </article>
-    <article>
-      <h2>Trackable element</h2>
-    </article>
-    <article>
-      <h2>Trackable element</h2>
-    </article>
-    <article>
-      <h2>Trackable element</h2>
-    </article>
-    <article>
-      <h2>Trackable element</h2>
-    </article>
-    <article>
-      <h2>Trackable element</h2>
-    </article>
-  </main>
-  <div class="debugger">
-    <fieldset>
-      <label for="show-debugger">Show Debugger</label>
-      <input type="checkbox" id="show-debugger" name="show-debugger">
-    </fieldset>
-    <fieldset class="units">
-      <label for="pixels">Pixels (px)</label>
-      <input type="radio" id="pixels" name="units" value="pixel" checked>
-      <label for="percentage">Percentage (%)</label>
-      <input type="radio" id="percentage" name="units" value="percentage">
-    </fieldset>
-    <fieldset>
-      <label for="root-margin-top">rootMarginTop:</label>
-      <input type="range" name="root-margin-top" id="root-margin-top" min="0" max="500" step="10" value="250">
-      <output id="root-margin-top-output" class="" for="root-margin-top">250</output>
-    </fieldset>
-    <fieldset>
-      <label for="root-margin-bottom">rootMarginBottom:</label>
-      <input type="range" name="root-margin-bottom" id="root-margin-bottom" min="0" max="500" step="10" value="250">
-      <output id="root-margin-bottom-output" class="" for="root-margin-bottom">250</output>
-    </fieldset>
-  </div>
-  <script src="./index.js"></script>
-</body>
+<html class="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>JS Bin</title>
+    <link rel="stylesheet" href="./index.scss" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <article class="welcome">
+        <h1 class="welcome__heading">
+          Welcome to the Intersection Observer playground.
+        </h1>
+        <a href="#end" class="welcome__cta js-scroller" data-direction="down"
+          >👇🏻 Scroll down 👇🏻</a
+        >
+      </article>
+      <article class="tracked-element tracked-element--activator">
+        <h3 class="tracked-element__heading">🤓 👉🏻</h3>
+        <h3 class="tracked-element__heading">
+          Look at the dashboard and its configurations.
+        </h3>
+        <p class="tracked-element__body">
+          Play with the dashboard and try different configurations and learn how
+          the Intersection Observer behaves.
+        </p>
+        <p class="tracked-element__body">
+          For instance, change the threshold to 1 and discover the difference in
+          the moment the card gets visible.
+        </p>
+      </article>
+      <article class="tracked-element">
+        <h3 class="tracked-element__heading">👁 👁</h3>
+        <h3 class="tracked-element__heading">
+          Try out the rootMargin configurations.
+        </h3>
+        <p class="tracked-element__body">
+          As you scroll, play around with the rootMargins and see how the cards
+          disappear or appear as the rootMargin overflows the card. This is
+          easier to do using percentages instead of pixels.
+        </p>
+        <p class="tracked-element__body">
+          All of this can be combined with the threshold to get the desired
+          behavior.
+        </p>
+      </article>
+      <article class="tracked-element">
+        <h3 class="tracked-element__heading">🤓 👉🏻</h3>
+        <h3 class="tracked-element__heading">Get to know the playground.</h3>
+      </article>
+      <article class="tracked-element">
+        <h3 class="tracked-element__heading">Nice huh 😎?</h3>
+      </article>
+      <article class="tracked-element">
+        <h3 class="tracked-element__heading">Some more, just for fun 🥸</h3>
+      </article>
+      <article class="tracked-element tracked-element--large">
+        <h3 class="tracked-element__heading">🥸</h3>
+      </article>
+      <article class="tracked-element tracked-element--extra-large">
+        <h3 class="tracked-element__heading">
+          This one works... or does it 🧐?
+        </h3>
+        <p class="tracked-element__body">
+          As you see, this card doesn't show up if you set the threshold to 1.
+        </p>
+        <p class="tracked-element__body">
+          The reason? The card's height is greater than the viewport's height.
+          This means that the card will never be able to show 100% of itself
+          while intersecting.
+        </p>
+      </article>
+      <article class="tracked-element">
+        <h3 class="tracked-element__heading">This is the last one 🥸</h3>
+      </article>
+      <article class="tracked-element">
+        <h3 class="tracked-element__heading">
+          Thank you, leave some feedback and please follow.
+        </h3>
+        <a
+          href="https://twitter.com/wilsotobianco?ref_src=twsrc%5Etfw"
+          class="twitter-follow-button"
+          data-show-count="false"
+          >Follow @wilsotobianco</a
+        >
+        <a
+          class="github-button"
+          href="https://github.com/wilsotobianco"
+          data-color-scheme="no-preference: light; light: light; dark: dark;"
+          data-size="small"
+          aria-label="Follow @wilsotobianco on GitHub"
+          >Follow @wilsotobianco</a
+        >
+        <a
+          class="github-button"
+          href="https://github.com/wilsotobianco/intersection-observer-playground"
+          data-color-scheme="no-preference: light; light: light; dark: dark;"
+          data-icon="octicon-star"
+          aria-label="Star wilsotobianco/intersection-observer-playground on GitHub"
+          >Star</a
+        >
+      </article>
+    </main>
+    <div class="debugger">
+      <fieldset class="debugger__group">
+        <input type="checkbox" id="show-debugger" name="show-debugger" />
+        <label class="debugger__label" for="show-debugger">Show Debugger</label>
+      </fieldset>
+      <fieldset class="debugger__group debugger__group--column">
+        <label class="debugger__label" for="threshold">Threshold:</label>
+        <select id="threshold" name="threshold">
+          <option value="0">0 – as soon as it intersects</option>
+          <option value="1">1 – as soon as the whole element is visible</option>
+        </select>
+      </fieldset>
+      <fieldset class="debugger__group units">
+        <input type="radio" id="pixels" name="units" value="pixel" checked />
+        <label class="debugger__label" for="pixels">Pixels (px)</label>
+        <input type="radio" id="percentage" name="units" value="percentage" />
+        <label class="debugger__label" for="percentage">Percentage (%)</label>
+      </fieldset>
+      <fieldset class="debugger__group debugger__group--rmt">
+        <label class="debugger__label" for="root-margin-top"
+          >rootMarginTop:</label
+        >
+        <input
+          type="range"
+          name="root-margin-top"
+          id="root-margin-top"
+          min="0"
+          max="500"
+          step="10"
+          value="250"
+        />
+        <output id="root-margin-top-output" class="" for="root-margin-top"
+          >250px</output
+        >
+      </fieldset>
+      <fieldset class="debugger__group debugger__group--rmb">
+        <label class="debugger__label" for="root-margin-bottom"
+          >rootMarginBottom:</label
+        >
+        <input
+          type="range"
+          name="root-margin-bottom"
+          id="root-margin-bottom"
+          min="0"
+          max="500"
+          step="10"
+          value="250"
+        />
+        <output id="root-margin-bottom-output" class="" for="root-margin-bottom"
+          >250px</output
+        >
+      </fieldset>
+      <fieldset class="debugger__group debugger__group--column">
+        <label class="debugger__label" for="config-output">Options:</label>
+        <textarea
+          id="config-output"
+          class="debugger__config-output"
+          disabled
+        ></textarea>
+      </fieldset>
+      <fieldset class="debugger__group debugger__group--column">
+        <label for="scroll-speed">Scroll speed:</label>
+        <select id="scroll-speed" name="scroll-speed">
+          <option value="1000">Fast</option>
+          <option value="2000" selected>Regular</option>
+          <option value="4000">Slow</option>
+          <option value="8000">SlowMo</option>
+        </select>
+      </fieldset>
+      <fieldset class="debugger__group">
+        <a href="#down" class="debugger__cta js-scroller" data-direction="down"
+          >Kick off scroll down 👇</a
+        >
+        <a href="#up" class="debugger__cta js-scroller" data-direction="up"
+          >Kick off scroll up 👆</a
+        >
+        <a href="#stop" class="debugger__cta js-scroller" data-direction="stop"
+          >Stop scroll ✋</a
+        >
+      </fieldset>
+    </div>
+    <div class="root-margin root-margin--top">
+      <h3 class="root-margin__heading">rootMarginTop: <span>250px</span></h3>
+    </div>
+    <div class="root-margin root-margin--bottom">
+      <h3 class="root-margin__heading">rootMarginBottom: <span>250px</span></h3>
+    </div>
+    <script defer src="./index.js"></script>
+    <script
+      defer
+      src="https://platform.twitter.com/widgets.js"
+      charset="utf-8"
+    ></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </body>
 </html>

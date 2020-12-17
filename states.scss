@@ -1,0 +1,57 @@
+.show-debugger {
+  .debugger {
+    opacity: 1;
+    transform: translateY(calc(100% - 32px)) scale(1);
+  }
+}
+
+.debugger-active {
+  .root-margin {
+    opacity: 0.95;
+    transform: scale(1);
+  }
+
+  .debugger {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .tracked-element {
+    opacity: 0.1;
+
+    &--visible {
+      opacity: 1;
+    }
+  }
+}
+
+.scrolling-automatically {
+  .debugger::before,
+  .debugger::after {
+    border-radius: 50%;
+    border: solid 2px rgba(255, 255, 255, 0.2);
+    content: "";
+    height: 16px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 16px;
+  }
+
+  .debugger::after {
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-name: loading;
+    animation-timing-function: ease-in-out;
+    border-top: solid 2px white;
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

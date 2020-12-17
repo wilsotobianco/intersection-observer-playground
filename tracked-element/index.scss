@@ -1,0 +1,58 @@
+.tracked-element {
+  background-color: white;
+  box-shadow: 0 0 64px 0 rgba(0, 0, 0, 0.2);
+  margin: 25vh 0;
+  opacity: 0;
+  padding: 36px;
+  // text-align: center;
+  transform: translateX(10%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  width: clamp(320px, 75vw, 1280px);
+  z-index: 3;
+
+  &--large,
+  &--extra-large {
+    padding-top: 64px;
+    text-align: left;
+  }
+
+  &--large &,
+  &--extra-large & {
+    &__heading {
+      font-size: clamp(6em, 8vw, 7em);
+      margin: 0;
+    }
+  }
+
+  &--large {
+    padding-bottom: 35vh;
+  }
+
+  &--extra-large {
+    padding-bottom: 90vh;
+  }
+
+  &__heading {
+    font-size: clamp(2em, 6vw, 4em);
+    margin: 16px 0 32px;
+    max-width: 768px;
+  }
+
+  &__heading + &__heading {
+    margin-top: -40px;
+  }
+
+  &__body {
+    font-size: 1.5rem;
+    max-width: 600px;
+  }
+
+  &--visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &__cta {
+    @extend %cta;
+  }
+}

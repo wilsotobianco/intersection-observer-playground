@@ -1,0 +1,30 @@
+.root-margin {
+  align-items: center;
+  box-sizing: border-box;
+  color: #fff;
+  display: flex;
+  font-size: 4rem;
+  justify-content: flex-start;
+  left: 0;
+  opacity: 0;
+  padding-left: 32px;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  transform: scale(1.1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 0;
+
+  &--top {
+    background-color: var(--root-margin-top-color, #000);
+    top: 0;
+    font-family: "Space Grotesk", sans-serif;
+    height: var(--root-margin-top, 0);
+  }
+
+  &--bottom {
+    background-color: var(--root-margin-bottom-color, #333);
+    bottom: 0;
+    height: var(--root-margin-bottom, 0);
+  }
+}
