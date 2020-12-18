@@ -160,14 +160,6 @@
         >
       </fieldset>
       <fieldset class="debugger__group debugger__group--column">
-        <label class="debugger__label" for="config-output">Options:</label>
-        <textarea
-          id="config-output"
-          class="debugger__config-output"
-          disabled
-        ></textarea>
-      </fieldset>
-      <fieldset class="debugger__group debugger__group--column">
         <label for="scroll-speed">Scroll speed:</label>
         <select id="scroll-speed" name="scroll-speed">
           <option value="1000">Fast</option>
@@ -178,14 +170,22 @@
       </fieldset>
       <fieldset class="debugger__group">
         <a href="#down" class="debugger__cta js-scroller" data-direction="down"
-          >Kick off scroll down 👇</a
+          >Scroll down 👇</a
         >
         <a href="#up" class="debugger__cta js-scroller" data-direction="up"
-          >Kick off scroll up 👆</a
+          >Scroll up 👆</a
         >
         <a href="#stop" class="debugger__cta js-scroller" data-direction="stop"
-          >Stop scroll ✋</a
+          >Stop ✋</a
         >
+      </fieldset>
+      <fieldset class="debugger__group debugger__group--column">
+        <label class="debugger__label" for="config-output">Options:</label>
+        <textarea
+          id="config-output"
+          class="debugger__config-output"
+          disabled
+        ></textarea>
       </fieldset>
     </div>
     <div class="root-margin root-margin--top">
