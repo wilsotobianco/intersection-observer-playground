@@ -1,8 +1,8 @@
-import { state } from "../state";
-import { units } from "./units";
-import { animateScroll } from "../scroll";
-import { globals } from "./globals";
-import { setCssCustomProperty } from "./ui";
+import { state } from '../state';
+import { units } from './units';
+import { animateScroll } from '../scroll';
+import { globals } from './globals';
+import { setCssCustomProperty } from './ui';
 
 const { requestAnimationFrame } = globals;
 
@@ -41,7 +41,7 @@ export const debounce = (callback) => {
 };
 
 export const addEventListeners = (refresh) => {
-  document.documentElement.addEventListener("click", (event) => {
+  document.documentElement.addEventListener('click', (event) => {
     if (!jsScrollers.includes(event.target)) {
       return;
     }
@@ -51,12 +51,12 @@ export const addEventListeners = (refresh) => {
   });
 
   rootMarginTopControl.addEventListener(
-    "input",
+    'input',
     debounce(() => {
       state.rootMarginTop = `${rootMarginTopControl.value}${state.unit}`;
       setCssCustomProperty(
         document.documentElement,
-        "--root-margin-top",
+        '--root-margin-top',
         state.rootMarginTop
       );
       rootMarginTopControlOutput.textContent = `${
@@ -71,12 +71,12 @@ export const addEventListeners = (refresh) => {
   );
 
   rootMarginBottomControl.addEventListener(
-    "input",
+    'input',
     debounce(() => {
       state.rootMarginBottom = `${rootMarginBottomControl.value}${state.unit}`;
       setCssCustomProperty(
         document.documentElement,
-        "--root-margin-bottom",
+        '--root-margin-bottom',
         state.rootMarginBottom
       );
       rootMarginBottomControlOutput.textContent = `${
@@ -90,15 +90,15 @@ export const addEventListeners = (refresh) => {
     })
   );
 
-  showDebuggerControl.addEventListener("change", (event) => {
+  showDebuggerControl.addEventListener('change', (event) => {
     if (event.target.checked) {
-      document.documentElement.classList.add("debugger-active");
+      document.documentElement.classList.add('debugger-active');
     } else {
-      document.documentElement.classList.remove("debugger-active");
+      document.documentElement.classList.remove('debugger-active');
     }
   });
 
-  thresholdControl.addEventListener("change", (event) => {
+  thresholdControl.addEventListener('change', (event) => {
     state.threshold = event.target.value;
     refresh({
       rootMarginTop: state.rootMarginTop,
@@ -107,7 +107,7 @@ export const addEventListeners = (refresh) => {
     });
   });
 
-  unitControls.addEventListener("change", (event) => {
+  unitControls.addEventListener('change', (event) => {
     let newConfig = { step: 10, value: 250, max: 500 };
 
     state.unit = units[event.target.value] ?? units.pixel;
@@ -123,12 +123,12 @@ export const addEventListeners = (refresh) => {
     state.rootMarginBottom = `${rootMarginBottomControl.value}${state.unit}`;
     setCssCustomProperty(
       document.documentElement,
-      "--root-margin-top",
+      '--root-margin-top',
       state.rootMarginTop
     );
     setCssCustomProperty(
       document.documentElement,
-      "--root-margin-bottom",
+      '--root-margin-bottom',
       state.rootMarginBottom
     );
     rootMarginTopControlOutput.textContent = `${

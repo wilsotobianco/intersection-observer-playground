@@ -1,6 +1,6 @@
 export const getElement = (element, selector) => {
   if (!element || !selector) {
-    throw new Error("Element and selector need to have a value");
+    throw new Error('Element and selector need to have a value');
   }
 
   return element.querySelector(selector);
@@ -8,7 +8,7 @@ export const getElement = (element, selector) => {
 
 export const getElements = (element, selector) => {
   if (!element || !selector) {
-    throw new Error("Element and selector need to have a value");
+    throw new Error('Element and selector need to have a value');
   }
 
   return [...element.querySelectorAll(selector)];

@@ -1,5 +1,5 @@
-import { linear } from "../utils/easings";
-import { globals } from "../utils/globals";
+import { linear } from '../utils/easings';
+import { globals } from '../utils/globals';
 
 let rafFrame;
 const {
@@ -13,23 +13,23 @@ const getProgress = (elapsed, total) => Math.min(elapsed / total, 1);
 
 const stopScroll = () => {
   cancelAnimationFrame(rafFrame);
-  document.documentElement.classList.remove("scrolling-automatically");
+  document.documentElement.classList.remove('scrolling-automatically');
 };
 
 export const animateScroll = (direction, scrollSpeedControl) => {
-  const isScrollDown = direction === "down";
+  const isScrollDown = direction === 'down';
   stopScroll();
 
-  if (direction === "stop") {
+  if (direction === 'stop') {
     return;
   }
 
-  global.addEventListener("wheel", () => stopScroll(), {
+  global.addEventListener('wheel', () => stopScroll(), {
     passive: true,
     once: true,
   });
 
-  document.documentElement.classList.add("scrolling-automatically");
+  document.documentElement.classList.add('scrolling-automatically');
 
   rafFrame = requestAnimationFrame((start) => {
     const { scrollY, innerHeight } = global;

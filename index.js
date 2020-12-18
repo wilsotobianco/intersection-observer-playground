@@ -1,7 +1,7 @@
-import { globals } from "./utils/globals";
-import { state } from "./state";
-import { setCssCustomProperty } from "./utils/ui";
-import { addEventListeners } from "./utils/events";
+import { globals } from './utils/globals';
+import { state } from './state';
+import { setCssCustomProperty } from './utils/ui';
+import { addEventListeners } from './utils/events';
 
 const { document, setTimeout } = globals;
 
@@ -15,12 +15,13 @@ const {
 
 setCssCustomProperty(
   document.documentElement,
-  "--root-margin-top",
+  '--root-margin-top',
   state.rootMarginTop
 );
+
 setCssCustomProperty(
   document.documentElement,
-  "--root-margin-bottom",
+  '--root-margin-bottom',
   state.rootMarginBottom
 );
 
@@ -40,17 +41,17 @@ const updateIntersectionObserver = ({
 const callback = (entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add("tracked-element--visible");
+      entry.target.classList.add('tracked-element--visible');
       if (
         !state.debuggerHasBeenShown &&
-        entry.target.classList.contains("tracked-element--activator")
+        entry.target.classList.contains('tracked-element--activator')
       ) {
         state.debuggerHasBeenShown = true;
-        document.documentElement.classList.add("show-debugger");
+        document.documentElement.classList.add('show-debugger');
         setTimeout(() => showDebuggerControl.click(), 300);
       }
     } else {
-      entry.target.classList.remove("tracked-element--visible");
+      entry.target.classList.remove('tracked-element--visible');
     }
   });
 };
@@ -75,6 +76,7 @@ const createIntersectionObserver = ({
 };
 
 addEventListeners(updateIntersectionObserver);
+
 state.globalObserver = createIntersectionObserver({
   rootMarginTop: state.rootMarginTop,
   rootMarginBottom: state.rootMarginBottom,
