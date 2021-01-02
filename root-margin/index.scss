@@ -17,14 +17,14 @@
 
   &--top {
     background-color: var(--root-margin-top-color, #000);
-    top: 0;
-    font-family: "Space Grotesk", sans-serif;
     height: var(--root-margin-top, 0);
+    top: 0;
   }
 
   &--bottom {
     background-color: var(--root-margin-bottom-color, #333);
     bottom: 0;
     height: var(--root-margin-bottom, 0);
+    transition-delay: 0.3s;
   }
 }

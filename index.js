@@ -61,8 +61,8 @@ const createIntersectionObserver = ({
   rootMarginBottom,
   threshold,
 }) => {
-  rootMarginTopUi.textContent = rootMarginTop;
-  rootMarginBottomUi.textContent = rootMarginBottom;
+  rootMarginTopUi.textContent = `-${rootMarginTop}`;
+  rootMarginBottomUi.textContent = `-${rootMarginBottom}`;
   const config = {
     rootMargin: `-${rootMarginTop} 0${state.unit} -${rootMarginBottom} 0${state.unit}`,
     threshold,

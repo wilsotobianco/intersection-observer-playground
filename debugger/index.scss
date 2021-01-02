@@ -1,24 +1,115 @@
 .debugger {
-  background-color: rgba(0, 0, 0, 0.9);
-  border-radius: 4px;
+  background-color: rgba(32, 32, 32, 1);
+  border-radius: 16px;
   bottom: 16px;
+  box-shadow: 0 0 80px 0 rgba(0, 0, 0, 0.2);
   color: #fff;
+  max-height: calc(100vh - 32px);
   opacity: 0;
   padding: 16px;
   position: fixed;
   right: 16px;
-  transform: translateY(calc(100% - 32px)) scale(1);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(calc(100% - 40px)) scale(0.9);
+  transform-origin: right top;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  width: clamp(320px, 50vw, 450px);
   z-index: 4;
 
-  &__group {
+  &__heading {
+    font-weight: 400;
+    margin: -16px -16px 0 -16px;
+
+    > label {
+      cursor: pointer;
+      display: block;
+      padding: 16px;
+      position: relative;
+
+      &::before {
+        content: '';
+        top: 16px;
+        right: 16px;
+        position: absolute;
+        height: 2px;
+        width: 16px;
+        background-color: white;
+      }
+    }
+  }
+
+  &__subheading {
+    color: #ddd;
+    font-weight: 400;
+    margin: 0 0 16px;
+    grid-column: 1/-1;
+    grid-row: heading;
+  }
+
+  &__fieldset-group {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: [heading] auto [controls-1] auto [controls-2] auto [controls-3] auto;
+    padding: 16px;
+    margin-bottom: 16px;
+
+    output {
+      font-size: 2rem;
+    }
+  }
+
+  &__fieldset {
     border: none;
-    padding: 0 0 16px;
-    margin-bottom: 8px;
+    margin: 0;
+    padding: 8px 0;
+
+    &:nth-of-type(1) {
+      grid-column: 1;
+      grid-row: controls-1;
+    }
+
+    &:nth-of-type(2) {
+      grid-column: 2;
+      grid-row: controls-1;
+    }
+
+    &:nth-of-type(3) {
+      grid-column: 1;
+      grid-row: controls-2;
+    }
+
+    &:nth-of-type(4) {
+      grid-column: 2;
+      grid-row: controls-2;
+    }
+
+    &:nth-of-type(5) {
+      grid-column: 1/-1;
+      grid-row: controls-3;
+    }
 
     &:last-child {
       margin-bottom: 0;
       padding-bottom: 0;
+    }
+
+    select,
+    input[type='range'] {
+      width: 90%;
+    }
+
+    select {
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      border-bottom: solid 2px #999;
+      color: #fff;
+      padding: 8px 0;
+    }
+
+    &--center {
+      display: flex;
+      justify-content: center;
     }
 
     &--column {
@@ -31,22 +122,32 @@
       position: relative;
 
       &::before {
-        content: "";
-        position: absolute;
         bottom: 12px;
+        content: '';
+        height: 2rem;
         left: 0;
-        height: 4px;
+        position: absolute;
+        z-index: -1;
       }
     }
 
     &--rmt::before {
       background-color: var(--root-margin-top-color, #000);
-      width: calc(var(--root-margin-top, 0) / 2);
+      width: calc(var(--root-margin-top, 0) / 3);
     }
 
     &--rmb::before {
       background-color: var(--root-margin-bottom-color, #333);
-      width: calc(var(--root-margin-bottom, 0) / 2);
+      width: calc(var(--root-margin-bottom, 0) / 3);
+    }
+
+    &--scroll {
+      &:nth-of-type(2) {
+        display: flex;
+        justify-content: space-between;
+        grid-column: 1/-1;
+        grid-row: controls-2;
+      }
     }
   }
 
@@ -55,8 +156,11 @@
 
     border-color: white;
     color: white;
-    margin-top: 0;
-    text-transform: uppercase;
+    margin: 0 16px 0 0;
+
+    &:last-child {
+      margin-right: 0;
+    }
 
     &:hover {
       background-color: white;
@@ -65,7 +169,7 @@
   }
 
   &__config-output {
-    height: 150px;
+    height: 80px;
     width: 100%;
     background-color: #222;
     cursor: text;

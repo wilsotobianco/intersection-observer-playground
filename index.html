@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./index.scss" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Roboto&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;900&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -108,78 +108,103 @@
       </article>
     </main>
     <div class="debugger">
-      <fieldset class="debugger__group">
-        <input type="checkbox" id="show-debugger" name="show-debugger" />
-        <label class="debugger__label" for="show-debugger">Show Debugger</label>
-      </fieldset>
-      <fieldset class="debugger__group debugger__group--column">
-        <label class="debugger__label" for="threshold">Threshold:</label>
-        <select id="threshold" name="threshold">
-          <option value="0">0 – as soon as it intersects</option>
-          <option value="1">1 – as soon as the whole element is visible</option>
-        </select>
-      </fieldset>
-      <fieldset class="debugger__group units">
-        <input type="radio" id="pixels" name="units" value="pixel" checked />
-        <label class="debugger__label" for="pixels">Pixels (px)</label>
-        <input type="radio" id="percentage" name="units" value="percentage" />
-        <label class="debugger__label" for="percentage">Percentage (%)</label>
-      </fieldset>
-      <fieldset class="debugger__group debugger__group--rmt">
-        <label class="debugger__label" for="root-margin-top"
-          >rootMarginTop:</label
+      <h2 class="debugger__heading">
+        <label for="show-debugger">Dashboard</label>
+      </h2>
+      <div class="debugger__fieldset-group">
+        <h3 class="debugger__subheading">Intersection Observer</h3>
+        <fieldset class="debugger__fieldset debugger__fieldset--column units">
+          <label class="debugger__label" for="units">Units</label>
+          <select id="units" name="units">
+            <option value="pixel">Pixels</option>
+            <option value="percentage">Percentage</option>
+          </select>
+          <input
+            type="checkbox"
+            id="show-debugger"
+            name="show-debugger"
+            hidden
+          />
+        </fieldset>
+        <fieldset class="debugger__fieldset debugger__fieldset--column">
+          <label class="debugger__label" for="threshold">Threshold</label>
+          <select id="threshold" name="threshold">
+            <option value="0">(0) As soon as there's a sneak peek</option>
+            <option value="1">
+              (1) As soon as the whole element is visible
+            </option>
+          </select>
+        </fieldset>
+        <fieldset class="debugger__fieldset debugger__fieldset--rmt">
+          <label class="debugger__label" for="root-margin-top"
+            >rootMarginTop</label
+          >
+          <input
+            type="range"
+            name="root-margin-top"
+            id="root-margin-top"
+            min="0"
+            max="500"
+            step="10"
+            value="250"
+          />
+          <output id="root-margin-top-output" class="" for="root-margin-top"
+            >-250px</output
+          >
+        </fieldset>
+        <fieldset class="debugger__fieldset debugger__fieldset--rmb">
+          <label class="debugger__label" for="root-margin-bottom"
+            >rootMarginBottom</label
+          >
+          <input
+            type="range"
+            name="root-margin-bottom"
+            id="root-margin-bottom"
+            min="0"
+            max="500"
+            step="10"
+            value="250"
+          />
+          <output
+            id="root-margin-bottom-output"
+            class=""
+            for="root-margin-bottom"
+            >-250px</output
+          >
+        </fieldset>
+      </div>
+      <div class="debugger__fieldset-group">
+        <h3 class="debugger__subheading">Automated scroll</h3>
+        <fieldset
+          class="debugger__fieldset debugger__fieldset--scroll debugger__fieldset--column"
         >
-        <input
-          type="range"
-          name="root-margin-top"
-          id="root-margin-top"
-          min="0"
-          max="500"
-          step="10"
-          value="250"
-        />
-        <output id="root-margin-top-output" class="" for="root-margin-top"
-          >250px</output
-        >
-      </fieldset>
-      <fieldset class="debugger__group debugger__group--rmb">
-        <label class="debugger__label" for="root-margin-bottom"
-          >rootMarginBottom:</label
-        >
-        <input
-          type="range"
-          name="root-margin-bottom"
-          id="root-margin-bottom"
-          min="0"
-          max="500"
-          step="10"
-          value="250"
-        />
-        <output id="root-margin-bottom-output" class="" for="root-margin-bottom"
-          >250px</output
-        >
-      </fieldset>
-      <fieldset class="debugger__group debugger__group--column">
-        <label for="scroll-speed">Scroll speed:</label>
-        <select id="scroll-speed" name="scroll-speed">
-          <option value="1000">Fast</option>
-          <option value="2000" selected>Regular</option>
-          <option value="4000">Slow</option>
-          <option value="8000">SlowMo</option>
-        </select>
-      </fieldset>
-      <fieldset class="debugger__group">
-        <a href="#down" class="debugger__cta js-scroller" data-direction="down"
-          >Scroll down 👇</a
-        >
-        <a href="#up" class="debugger__cta js-scroller" data-direction="up"
-          >Scroll up 👆</a
-        >
-        <a href="#stop" class="debugger__cta js-scroller" data-direction="stop"
-          >Stop ✋</a
-        >
-      </fieldset>
-      <fieldset class="debugger__group debugger__group--column">
+          <label for="scroll-speed">Speed</label>
+          <select id="scroll-speed" name="scroll-speed">
+            <option value="10000">🦥 Slow Motion</option>
+            <option value="5000">🐢 Slow</option>
+            <option value="2500" selected>🙃 Normal</option>
+            <option value="500">🚀 Fast</option>
+          </select>
+        </fieldset>
+        <fieldset class="debugger__fieldset debugger__fieldset--scroll">
+          <a
+            href="#down"
+            class="debugger__cta js-scroller"
+            data-direction="down"
+            >👇 Down</a
+          >
+          <a href="#up" class="debugger__cta js-scroller" data-direction="up"
+            >👆 Up</a
+          >
+          <a
+            href="#stop"
+            class="debugger__cta js-scroller"
+            data-direction="stop"
+            >✋ Stop</a
+          >
+        </fieldset>
+      </div>
+      <fieldset class="debugger__fieldset debugger__fieldset--column">
         <label class="debugger__label" for="config-output">Options:</label>
         <textarea
           id="config-output"
@@ -189,10 +214,12 @@
       </fieldset>
     </div>
     <div class="root-margin root-margin--top">
-      <h3 class="root-margin__heading">rootMarginTop: <span>250px</span></h3>
+      <h3 class="root-margin__heading">rootMarginTop: <span>-250px</span></h3>
     </div>
     <div class="root-margin root-margin--bottom">
-      <h3 class="root-margin__heading">rootMarginBottom: <span>250px</span></h3>
+      <h3 class="root-margin__heading">
+        rootMarginBottom: <span>-250px</span>
+      </h3>
     </div>
     <script defer src="./index.js"></script>
     <script

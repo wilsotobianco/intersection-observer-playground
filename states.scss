@@ -1,7 +1,7 @@
 .show-debugger {
   .debugger {
     opacity: 1;
-    transform: translateY(calc(100% - 32px)) scale(1);
+    transform: translateY(calc(100% - 40px)) scale(0.9);
   }
 }
 
@@ -30,11 +30,11 @@
   .debugger::after {
     border-radius: 50%;
     border: solid 2px rgba(255, 255, 255, 0.2);
-    content: "";
+    content: '';
     height: 16px;
     position: absolute;
-    right: 8px;
-    top: 8px;
+    right: 40px;
+    top: 16px;
     width: 16px;
   }
 
